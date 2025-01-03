@@ -1,4 +1,4 @@
-package io.security.springsecuritymaster.controller;
+package io.security.springsecuritymaster.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth.requestMatchers("/").permitAll().anyRequest().authenticated()).formLogin(Customizer.withDefaults());
+        http.authorizeHttpRequests(auth -> auth.requestMatchers("/css/**", "/images/**", "/js/**", "/favicon.*", "/*/icon--*").permitAll().requestMatchers("/").permitAll().anyRequest().authenticated()).formLogin(form -> form.loginPage("/login").permitAll());
         return http.build();
     }
 
