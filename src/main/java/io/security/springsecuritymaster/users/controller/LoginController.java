@@ -17,14 +17,14 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(@RequestParam(value = "error", required = false) String error,
-                        @RequestParam(value = "exception", required = false) String exception, Model model){
-        model.addAttribute("error",error);
-        model.addAttribute("exception",exception);
+                        @RequestParam(value = "exception", required = false) String exception, Model model) {
+        model.addAttribute("error", error);
+        model.addAttribute("exception", exception);
         return "login/login";
     }
 
-    @GetMapping(value="/api/login")
-    public String restLogin(){
+    @GetMapping(value = "/api/login")
+    public String restLogin() {
         return "rest/login";
     }
 
@@ -36,7 +36,7 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = SecurityContextHolder.getContextHolderStrategy().getContext().getAuthentication();
-        if(authentication != null) {
+        if (authentication != null) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
         return "redirect:/login";

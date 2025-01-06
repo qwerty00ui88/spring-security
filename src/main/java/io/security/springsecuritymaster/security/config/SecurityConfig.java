@@ -1,4 +1,4 @@
-package io.security.springsecuritymaster.security.configs;
+package io.security.springsecuritymaster.security.config;
 
 import io.security.springsecuritymaster.security.dsl.RestApiDsl;
 import io.security.springsecuritymaster.security.entrypoint.RestAuthenticationEntryPoint;
